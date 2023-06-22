@@ -3,6 +3,13 @@
 // Tạo Biến rổng nhập dữ liệu vào trong để tính toán
 var arrNumber = [];
 
+// Độ Dài Mảng bằng không thì Alert
+function doDaiMangBang0() {
+    if (arrNumber.length == 0) {
+        alert("Vui Lòng Nhập Số");
+    }
+}
+
 // onclick để lấy dữ liệu thông tin 
 document.getElementById("themSo").onclick = function () {
     var themSo = document.getElementById("inputNumber").value * 1;
@@ -25,6 +32,7 @@ document.getElementById("themSo").onclick = function () {
  */
 function tinhTongDuong() {
     // console.log(123)
+    doDaiMangBang0()
     var tongDuong = 0;
     var content = "";
     for (var i = 0; i < arrNumber.length; i++) {
@@ -32,6 +40,7 @@ function tinhTongDuong() {
             tongDuong += arrNumber[i];
         }
     }
+
     content = "Tổng của các Số Dương là : " + tongDuong;
     document.getElementById("ketQua").innerHTML = content;
     // console.log(tongDuong);
@@ -54,6 +63,7 @@ function timTongSoDuong() {
             dem++;
         }
     }
+    doDaiMangBang0()
     content = "Có Tổng " + dem + " Số Dương.";
     document.getElementById("ketQua").innerHTML = content;
 }
@@ -75,6 +85,7 @@ function timSoMin() {
             min = arrNumber[i];
         }
     }
+    doDaiMangBang0()
     content = "Số Nhỏ Nhất Là : " + min;
     document.getElementById("ketQua").innerHTML = content;
 }
@@ -112,6 +123,7 @@ function timSoMinDuong() {
             minD = arrDuong[i];
         }
     }
+    doDaiMangBang0()
     // console.log(arrDuong)
     content = "Số Dương Nhỏ Nhất Là : " + minD;
     document.getElementById("ketQua").innerHTML = content;
@@ -136,17 +148,85 @@ function timSoChanCuoi() {
             arrChiaHet2.push(arrNumber[i]);
         }
     }
+
+    if (arrChiaHet2.length > 0) {
+        soChanCuoi = arrChiaHet2[arrChiaHet2.length - 1];
+        content = "Số Chẵn Nằm Cuối Mảng : " + soChanCuoi;
+    } else {
+        content = "Số Chẵn Nằm Cuối Mảng Không Có (-1) "
+    }
     // console.log(arrChiaHet2)
-    soChanCuoi = arrChiaHet2[arrChiaHet2.length - 1];
-    content = "Số Chẵn Nằm Cuối Mảng : " + soChanCuoi;
+    // soChanCuoi = arrChiaHet2[arrChiaHet2.length - 1];
+    // content = "Số Chẵn Nằm Cuối Mảng : " + soChanCuoi;
+    doDaiMangBang0()
     document.getElementById("ketQua").innerHTML = content;
 }
 
 //6. Đổi vị Trí 2 giá Trị Trong Mảng cho người dùng nhập dữ liệu
+/**
+ * Input: lấy value 2 vị trí muốn đổi để so với mảng
+ * Progress: 
+ * B1: lấy value người nhập so sánh với mảng nếu đúng thì lấy ra 2 vị trí có giá trị giống với người nhập và đổi vị trí cho nhau
+ */
+function onOffCau6 (){
+    var onOffCau6 = document.getElementById("onOffCau6").value;
+    var baiTap6 = document.getElementById("baiTap6");
+    if (onOffCau6 == "on") {
+        baiTap6.style.display = "block";
+        document.getElementById("onOffCau6").value = "off";
+    } else if (onOffCau6 == "off") {
+        baiTap6.style.display = "none";
+        document.getElementById("onOffCau6").value = "on";
+    }
+}
+function doiViTri(){
+    console.log(123)
+    var content = "";
+    var viTri1 = document.getElementById("inputNumberThu1"). value * 1;
+    var viTri2 = document.getElementById("inputNumberThu2"). value * 1;
+    for(var i = 0; i < arrNumber.length - 1 ; i++){
+        if(viTri1 === i){
+            for(var j = 0; j < arrNumber.length; j++){
+                if(viTri2 === j){
+                    var temp = arrNumber[i];
+                    arrNumber[i] = arrNumber[j];
+                    arrNumber[j] = temp;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    document.getElementById("ketQuaDoiViTri").innerHTML = " Kết Quả : " + arrNumber ;
+    console.log(arrNumber);
+}
 //7. Sắp Xếp Tăng Dần Trong Mảng
-
+/**
+ * - Input: lấy giá trị của mảng đi so sánh
+ * - Progress: 
+ * B1: vòng lập for đầu tiên lấy giá trị đầu xét tới giá trị kế cuối (vì chừa vị trí cuối cho số lớn nhất, nếu xét luôn thì khi xét sẽ ko còn số cuối để xét)
+ * B2: vòng lập for thứ 2 xét từng vị trí tới cuối, lúc này xét để biết số nào nằm cuối và gán cho giá trị nằm đó
+ * B3: lúc này xét điều kiện thì nếu vị trí [i] > [j] thì sẽ hoán đổi vị trí cho nhau bằng cách qua biến tạm var temp = ?
+ * - Output: xuất thông tin.
+ * 
+ */
+function sapXepTangDan() {
+    // console.log(123)
+    for (var i = 0; i < arrNumber.length - 1; i++) {
+        for (var j = i + 1; j < arrNumber.length; j++) { // nếu chỗ này cho j = 1 được kg?
+            if (arrNumber[i] > arrNumber[j]) {
+                var temp = arrNumber[i];
+                arrNumber[i] = arrNumber[j];
+                arrNumber[j] = temp;
+            }
+        }
+    }
+    doDaiMangBang0()
+    document.getElementById("ketQua").innerHTML = "Sắp Xếp Tăng Dần :" + arrNumber;
+}
 
 //8. Số Nguyên Tố Đầu Tiên  Trong Mảng
+// - số nguyên tố là số chỉ chia hết cho 1 hoặc chính nó mới gọi là số nguyên tố
 /**
  * - Input: tạo mảng mới để nhận số nguyên tố
  * - Progress:
@@ -171,14 +251,97 @@ function soNguyenToDauTien() {
         if (dem === 2) {
             arrSoNguyenTo.push(so);
         }
+        // else if(dem > 2 || dem === 1) {
+        //     arrSoNguyenTo.push(-1);
+        // }
     }
     // console.log(arrSoNguyenTo);
-    var soNguyenToDau = arrSoNguyenTo[0];
-    content += "Các Số Nguyên Tố : " + arrSoNguyenTo + " <br> ";
-    content += "Số Nguyên Tố Đầu Tiên : " + soNguyenToDau;
+    if (arrSoNguyenTo.length === 0) {
+        var soNguyenToDau = -1;
+        content += "Các Số Nguyên Tố : " + arrSoNguyenTo + " <br> ";
+        content += "Số Nguyên Tố Đầu Tiên : " + soNguyenToDau;
+    } else {
+        var soNguyenToDau = arrSoNguyenTo[0];
+        content += "Các Số Nguyên Tố : " + arrSoNguyenTo + " <br> ";
+        content += "Số Nguyên Tố Đầu Tiên : " + soNguyenToDau;
+    }
+    doDaiMangBang0()
     document.getElementById("ketQua").innerHTML = content;
 }
 
 
 //9. Nhập Thêm 1 mảng Số Thực và Tìm xem có Tổng Bao Nhiêu Số NGuyên
+var arrNumber2 = [];
+function onOff() {
+    // console.log(123)
+    var onOff = document.getElementById("onOff").value;
+    var baiTap9 = document.getElementById("baiTap9");
+    if (onOff == "on") {
+        baiTap9.style.display = "block";
+        document.getElementById("onOff").value = "off";
+    } else if (onOff == "off") {
+        baiTap9.style.display = "none";
+        document.getElementById("onOff").value = "on";
+    }
+}
+function themSoMoi() {
+    // console.log(123)
+    var themSoMoi = document.getElementById("inputNumberMoi").value * 1;
+    if (themSoMoi === 0) {
+        alert("vui lòng nhập số");
+    } else {
+        arrNumber2.push(themSoMoi);
+    }
+    // console.log(arrNumber)
+    document.getElementById("xuatDuLieuMoi").innerHTML = arrNumber2;
+}
+function timSoNguyen2Day() {
+    // console.log(123)
+    var arrTong = [];
+    var arrTongSoNguyen2Day = [];
+    var content = "";
+    arrTong = arrNumber.concat(arrNumber2);
+    // console.log(arrTong);
+    for (var i = 0; i < arrTong.length; i++) {
+        var so = arrTong[i];
+        var dem = 0;
+        for (var j = 1; j <= so; j++) {
+            if (so % j === 0) {
+                dem++;
+            }
+        }
+        if (dem === 2) {
+            arrTongSoNguyen2Day.push(so);
+        }
+    }
+    content += " Tìm Được Dãy Số Nguyên từ 2 dãy số vừa nhập vào :  " + arrTongSoNguyen2Day + "<br>";
+    content += "Tổng Số Nguyên Của 2 Dãy Là : " + arrTongSoNguyen2Day.length + " SÓ";
+    document.getElementById("ketQuaMoi").innerHTML = content;
+}
 //10. Tìm xem Số Dương hay Số Âm Nhiều Hơn
+/**
+ * Input: xét mảng đã nhập
+ * Progress: 
+ * B1: cho biến đếm Âm và DƯơng = 0
+ * B2: ta kiểm tra biến đếm bên nào lớn hơn
+ * Output: xuất Thông tin
+ */
+function soSanhDuongVaAm() {
+    var demDuong = 0;
+    var demAm = 0;
+    var content = "";
+    for (var i = 0; i < arrNumber.length; i++) {
+        if (arrNumber[i] > 0) {
+            demDuong++
+        } else {
+            demAm++
+        }
+    }
+    if (demDuong > demAm) {
+        content += "Có Tổng " + demDuong + " Số Dương >  " + demAm + " Số Âm";
+    } else {
+        content += "Có Tổng " + demDuong + " Số Dương <  " + demAm + " Số Âm";
+    }
+    doDaiMangBang0()
+    document.getElementById("ketQua").innerHTML = content;
+}

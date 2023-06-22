@@ -25,6 +25,21 @@
         <button class="btn btn-success" id="themSo">Thêm Số Cho Dữ Liệu</button>
         <div class="xuatDulieu"><span> Dữ Liệu Nhập vào: </span> <span id="xuatDuLieu"> </span></div>
         <p id="ketQua" class="alert alert-warning">Nơi Trả Kết Quả</p>
+        <div id="baiTap6">
+            <label for=""> Đổi vị Trí 2 Giá Trị </label> <br>
+            <input type="number" class="form-control" id="inputNumberThu1" placeholder="vị trí 1">
+            <input type="number" class="form-control" id="inputNumberThu2" placeholder="vị trí 2">
+            <p id="ketQuaDoiViTri" class="alert alert-primary">Dãy Số Đã Thay Đổi :</p>
+            <button id="doiViTri" class="btn btn-danger" onclick="doiViTri()">Đổi Vị Trí</button>
+        </div>
+        <div id="baiTap9">
+            <label for=""> Nhập Thêm 1 Dãy Số Mới </label> <br>
+            <input type="number" class="form-control" id="inputNumberMoi" placeholder="nhập số vào đây">
+            <button class="btn btn-primary" id="themSoMoi" onclick="themSoMoi()">Thêm Dãy Số Mới</button>
+            <div class="xuatDulieu"><span> Dãy Số Mới: </span> <span id="xuatDuLieuMoi"> </span></div>
+            <p id="ketQuaMoi" class="alert alert-primary">Nơi Trả Kết Quả Số Nguyên Của 2 Dãy Số</p>
+            <button id="timKetQua" class="btn btn-danger" onclick="timSoNguyen2Day()">Tìm Kết Quả</button>
+        </div>
     </div>
     <div class="divButton container">
         <button type="button" class="btn btn-warning" onclick="tinhTongDuong()">Tổng Các Số Dương</button>
@@ -32,12 +47,11 @@
         <button type="button" class="btn btn-secondary" onclick="timSoMin()">Số Nhỏ Nhất</button>
         <button type="button" class="btn btn-success" onclick="timSoMinDuong()">Số Dương Nhỏ Nhất</button> <br>
         <button type="button" class="btn btn-dark" onclick="timSoChanCuoi()">Số Chẵn Cuối Cùng</button>
-        <button type="button" class="btn btn-warning">Đổi Chổ 2 Giá Trị</button>
-        <button type="button" class="btn btn-danger">Sắp Xếp Tăng Dần</button>
+        <button type="button" class="btn btn-danger" onclick="sapXepTangDan()">Sắp Xếp Tăng Dần</button>
         <button type="button" class="btn btn-dark" onclick="soNguyenToDauTien()">Số Nguyên Tố Đầu Tiên Trong Mảng</button> <br>
-        <button type="button" class="btn btn-info">Nhập Thêm 1 Mảng Số Thực Và Tìm Có Bao Nhiêu Số Nguyên</button>
-        <button type="button" class="btn btn-success">Có Bao Nhiêu Số Dương và Âm (Bên nào Nhiều Hơn)</button>
-
+        <button type="button" class="btn btn-success" onclick="soSanhDuongVaAm()">Có Bao Nhiêu Số Dương và Âm ( Bên nào Nhiều Hơn )</button>
+        <button type="button" class="btn btn-warning" id="onOffCau6" value="on" onclick="onOffCau6()">Đổi Chổ 2 Giá Trị ( Click Để Biết Thêm Chi Tiết, click lần nữa để tắt )</button>
+        <button type="button" class="btn btn-info" id="onOff" onclick="onOff()" value="on">Nhập Thêm 1 Mảng Số Thực Và Tìm Có Bao Nhiêu Số Nguyên ( Click Để Biết Thêm Chi Tiết, click lần nữa để tắt )</button>
     </div>
 
 
