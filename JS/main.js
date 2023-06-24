@@ -170,7 +170,7 @@ function timSoChanCuoi() {
  * B2: tạo vòng lập để lấy vị trí cần đổi, sau đó xét điều kiện viTri1 = vs giá trị người nhập thì thực hiện vòng lập kế để lấy viTri2, khi lấy được viTri2 rồi thì đổi vị trí và break;
  * B3: xuất mảng sau khi đổi vị trí
  */
-function onOffCau6 (){
+function onOffCau6() {
     var onOffCau6 = document.getElementById("onOffCau6").value;
     var baiTap6 = document.getElementById("baiTap6");
     if (onOffCau6 == "on") {
@@ -181,15 +181,15 @@ function onOffCau6 (){
         document.getElementById("onOffCau6").value = "on";
     }
 }
-function doiViTri(){
+function doiViTri() {
     console.log(123)
     var content = "";
-    var viTri1 = document.getElementById("inputNumberThu1"). value * 1;
-    var viTri2 = document.getElementById("inputNumberThu2"). value * 1;
-    for(var i = 0; i < arrNumber.length - 1 ; i++){
-        if(viTri1 === i){
-            for(var j = 0; j < arrNumber.length; j++){
-                if(viTri2 === j){
+    var viTri1 = document.getElementById("inputNumberThu1").value * 1;
+    var viTri2 = document.getElementById("inputNumberThu2").value * 1;
+    for (var i = 0; i < arrNumber.length - 1; i++) {
+        if (viTri1 === i) {
+            for (var j = 0; j < arrNumber.length; j++) {
+                if (viTri2 === j) {
                     var temp = arrNumber[i];
                     arrNumber[i] = arrNumber[j];
                     arrNumber[j] = temp;
@@ -199,7 +199,7 @@ function doiViTri(){
             break;
         }
     }
-    document.getElementById("ketQuaDoiViTri").innerHTML = " Kết Quả : " + arrNumber ;
+    document.getElementById("ketQuaDoiViTri").innerHTML = " Kết Quả : " + arrNumber;
     console.log(arrNumber);
 }
 //7. Sắp Xếp Tăng Dần Trong Mảng
@@ -355,9 +355,9 @@ function soSanhDuongVaAm() {
     }
     if (demDuong > demAm) {
         content += "Có Tổng " + demDuong + " Số Dương >  " + demAm + " Số Âm";
-    } else if(demDuong < demAm) {
+    } else if (demDuong < demAm) {
         content += "Có Tổng " + demDuong + " Số Dương <  " + demAm + " Số Âm";
-    } else{
+    } else {
         content += "Có Tổng " + demDuong + " Số Dương =  " + demAm + " Số Âm";
     }
     doDaiMangBang0()
