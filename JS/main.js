@@ -166,7 +166,9 @@ function timSoChanCuoi() {
 /**
  * Input: lấy value 2 vị trí muốn đổi để so với mảng
  * Progress: 
- * B1: lấy value người nhập so sánh với mảng nếu đúng thì lấy ra 2 vị trí có giá trị giống với người nhập và đổi vị trí cho nhau
+ * B1: tạo biến cho lấy giá trị người nhập vị trí muốn đổi (viTri1 viTri2)
+ * B2: tạo vòng lập để lấy vị trí cần đổi, sau đó xét điều kiện viTri1 = vs giá trị người nhập thì thực hiện vòng lập kế để lấy viTri2, khi lấy được viTri2 rồi thì đổi vị trí và break;
+ * B3: xuất mảng sau khi đổi vị trí
  */
 function onOffCau6 (){
     var onOffCau6 = document.getElementById("onOffCau6").value;
@@ -207,7 +209,7 @@ function doiViTri(){
  * B1: vòng lập for đầu tiên lấy giá trị đầu xét tới giá trị kế cuối (vì chừa vị trí cuối cho số lớn nhất, nếu xét luôn thì khi xét sẽ ko còn số cuối để xét)
  * B2: vòng lập for thứ 2 xét từng vị trí tới cuối, lúc này xét để biết số nào nằm cuối và gán cho giá trị nằm đó
  * B3: lúc này xét điều kiện thì nếu vị trí [i] > [j] thì sẽ hoán đổi vị trí cho nhau bằng cách qua biến tạm var temp = ?
- * - Output: xuất thông tin.
+ * - Output: xuất thông tin. arr[] tìm được mảng được sắp xếp
  * 
  */
 function sapXepTangDan() {
@@ -234,7 +236,7 @@ function sapXepTangDan() {
  * B2: vòng lập for thứ 2 để kiểm số nguyên tố: nếu (so) chia hết cho 2 thì biến đếm + 1
  * B3: kiểm tra biến đếm: nếu biến đếm === 2 là số nguyên tố, nếu biến đếm > 2 thì không phải số nguyên tố.
  * B4: lấy số nguyên tố đầu tiên bằng cách: lấy vị trí [0] của mảng số nguyên tố mình vừa tạo là được
- * - Output: xuất thông tin.
+ * - Output: xuất thông tin. arr[0] tìm dc số nguyên tố đầu tiên
  */
 function soNguyenToDauTien() {
     // console.log(123)
@@ -271,6 +273,20 @@ function soNguyenToDauTien() {
 
 
 //9. Nhập Thêm 1 mảng Số Thực và Tìm xem có Tổng Bao Nhiêu Số NGuyên
+/**
+ * Input: 
+ * - tạo mảng mới arrNumber2 để nhận giá trị mới của người dùng
+ * Progress:
+ * - B1: tạo function để lấy giá trị và push vào mảng arr.push(number);
+ * - B2: 
+ * +tạo mảng tổng arrTong để nhận 2 giá trị từ arrNumber vs arrNumber2 arr.concat(arr)
+ * +tạo function tim số nguyên, tạo mảng số nguyên tố để nhận giá trị tìm được từ arrTong
+ * +tạo vòng lập 1 để xét mảng và lấy giá trị từ việc xét vị trí để lấy ra var so = number
+ * +tạo vòng lập 2 để tìm ra số nguyên (số nguyên chỉ chia hết cho 1 vs chính nó, ngoài ra không phải), tạo biến đếm và xét điều kiện if, mỗi lần chia hết cho 1 số nào đó == 0 thì biến đếm dem++ (nếu dem > 2 thì ko phải số nguyên tố), khi có số nguyên tố rồi ta sẽ push vào arr nguyên tố vừa tạo
+ * +Có mảng số nguyên rồi => tìm được có bao nhiêu số nguyên trong tổng 2 mảng
+ * Output: 
+ * - xuất thông tin: arr.length
+ */
 var arrNumber2 = [];
 function onOff() {
     // console.log(123)
