@@ -355,8 +355,10 @@ function soSanhDuongVaAm() {
     }
     if (demDuong > demAm) {
         content += "Có Tổng " + demDuong + " Số Dương >  " + demAm + " Số Âm";
-    } else {
+    } else if(demDuong < demAm) {
         content += "Có Tổng " + demDuong + " Số Dương <  " + demAm + " Số Âm";
+    } else{
+        content += "Có Tổng " + demDuong + " Số Dương =  " + demAm + " Số Âm";
     }
     doDaiMangBang0()
     document.getElementById("ketQua").innerHTML = content;
